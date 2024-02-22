@@ -1,0 +1,13 @@
+Uranus
+
+
+
+
+
+
+mean radius: 25.362 km(3.981 Earths)
+mass:8.6810*10^25 km (95.159 Earths)
+surface gravity:0.886 g
+orbital period: 84.0205 years
+average orbital speed: 6.8 km/s
+satelites:27

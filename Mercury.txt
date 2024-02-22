@@ -1,0 +1,13 @@
+Mercury
+
+
+
+
+
+
+mean Radius: 2439.7(0.3829 Earths)
+mass: 3.3011 * 10^10 km (0.056 Earths)
+surface gravity: 0.38 g
+orbital period: 87.9691 days
+average orbital speed: 47.36 km/s
+satelites:0

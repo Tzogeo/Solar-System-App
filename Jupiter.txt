@@ -1,0 +1,14 @@
+Jupiter
+
+
+
+
+
+
+
+mean radius: 69.911 km(10.517 Earths)
+mass:1.8982*10^27 km (1321 Earths)
+surface gravity:2.528 g
+orbital period: 11.862 years
+average orbital speed: 13.07 km/s
+satelites:95

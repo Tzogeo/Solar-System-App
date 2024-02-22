@@ -1,0 +1,14 @@
+Earth
+
+
+
+
+
+
+
+mean Radius: 6371.0
+mass: 5.972168 * 10^24 km 
+surface gravity: 1 g
+orbital period: 365.356363004 days
+average orbital speed: 29.7827 km/s
+satelites:1

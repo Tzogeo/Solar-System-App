@@ -1,0 +1,13 @@
+Saturn
+
+
+
+
+
+
+mean radius: 58.232 km(9.1402 Earths)
+mass:5.6834*10^26 km (95.159 Earths)
+surface gravity:1.065 g
+orbital period: 29.4475 years
+average orbital speed: 9.68 km/s
+satelites:146

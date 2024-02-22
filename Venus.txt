@@ -1,0 +1,13 @@
+Venus
+
+
+
+
+
+
+
+mean Radius: 6051.8(0.9499 Earths)
+mass: 4.8675 * 10^24 km (0.815 Earths)
+surface gravity: 0.904 g
+orbital period: 224.701 days
+average orbital speed: 35.02 km/s

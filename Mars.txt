@@ -1,0 +1,14 @@
+Mars
+
+
+
+
+
+
+
+mean radius: 3389.5 km(0.53202 Earths)
+mass: 6.4171*10^23 km (0.107 Earths)
+surface gravity: 0.3794 g
+orbital period: 686.98 days
+average orbital speed: 24.07 km/s
+satelites:2

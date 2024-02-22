@@ -1,0 +1,13 @@
+Neptune
+
+
+
+
+
+
+mean radius: 24.764 km(3.887 Earths)
+mass:1.024*10^26 km (17.147 Earths)
+surface gravity:1.14 g
+orbital period: 164.8 years
+average orbital speed: 5.43 km/s
+satelites:14
