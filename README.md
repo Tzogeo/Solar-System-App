@@ -1,8 +1,8 @@
-#Solar-System
+# Solar-System
 
 Welcome to Solar-System, a Python program built using Pygame that offers a range of interactive features related to the celestial bodies within our solar system. Some examples are: a simulation of the movement of the planets in scale, information about the planets, an eazy and a not so easy quiz about them and a free-fall simulation on the planets
 
-##Essential libraries:
+## Essential libraries:
 pygame
 sys (pre-installed with python)
 random (pre-installed with python)
@@ -10,7 +10,7 @@ webbrowser (pre-installed with python)
 math (pre-installed with python)
 datetime (pre-installed with python)
 
-##How to install the project:
+## How to install the project:
 
 Ensure you have Python installed on your system.
 Install Pygame library by using pip install pygame(in Windows).
@@ -18,14 +18,14 @@ Clone this repository to your local machine.
 Navigate to the directory where the program is saved.
 Run the solar_system.py file using Python.
 
-##How to use the project:
+## How to use the project:
 From the main menu by prssing the appropriate button the user access the features below:
-*Key 1: shows information about the planet
-*Key 2: shows a free fall simulation
-*Key 3: shows the planets(and their movement) in scale
-*Key 4: focuses on the inner planets and shows them in scale
-*Key 5: opens a quiz on the planets
-*Key 6: opens another quiz with more difficult questions
+* Key 1: shows information about the planet
+* Key 2: shows a free fall simulation
+* Key 3: shows the planets(and their movement) in scale
+* Key 4: focuses on the inner planets and shows them in scale
+* Key 5: opens a quiz on the planets
+* Key 6: opens another quiz with more difficult questions
 
 Specifically the user in each feature will do this:
 1: The user will see  images of the 8 planets with their name and a bit of information about them. By pressing the name of a specific planet the user will be able to see more information about this planet. By clicking an image of a planet the wikipedia page of that planet will be opened on the default browser
@@ -37,20 +37,20 @@ Specifically the user in each feature will do this:
 
 The user will be able to return to the previous screen by pressing the escape button and leave the game by clicking x on the top right side of the window.
 
-##Credits:
+## Credits:
 This program is developed using Pygame, an open-source library for making multimedia applications. Special thanks to the contributors of Pygame for their dedication to the project. 
 The information on the program and most of the images were taken from Wikipedia and Nasa. Special thanks to all the people behind the two organisations.
 
-##Contribution:
+## Contribution:
 Contributions to this project are welcome! Feel free to submit bug reports, feature requests, or even pull requests to help improve Solar-System for everyone.
 
-##License:
+## License:
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-##Future updates:
+## Future updates:
 In the simulation of the movement of the planets the user will be able to see some missions of space exploration that happen(happened or will happen) near the time that appears.
 
-##Feedback:
+## Feedback:
 If you have any feedback, suggestions, or issues, please don't hesitate to reach out. Your input is invaluable in enhancing the user experience of Solar-System.
 
 Thank you for using the app! Happy exploring the wonders of our solar system! 🌌🪐
