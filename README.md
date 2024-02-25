@@ -1,25 +1,29 @@
-# Solar-System
+# Solar-System-App
 
-Welcome to Solar-System, a Python program built using Pygame that offers a range of interactive features related to the celestial bodies within our solar system. Some examples are: a simulation of the movement of the planets in scale, information about the planets, an easy and a not so easy quiz about them and a free-fall simulation on the planets
+Welcome to Solar-System-App, a Python program built using Pygame that offers a range of interactive features related to the celestial bodies within our solar system. Some examples are:
+* a simulation of the movement of the planets in scale
+* information about the planets
+* an easy and a not so easy quiz about them 
+* a free-fall simulation on the planets
 
 ## Essential libraries:
-pygame
-sys (pre-installed with python)
-random (pre-installed with python)
-webbrowser (pre-installed with python)
-math (pre-installed with python)
-datetime (pre-installed with python)
+* pygame
+* sys (pre-installed with python)
+* random (pre-installed with python)
+* webbrowser (pre-installed with python)
+* math (pre-installed with python)
+* datetime (pre-installed with python)
 
 ## How to install the project:
 
-Ensure you have Python installed on your system.
-Install Pygame library by using pip install pygame(in Windows).
-Clone this repository to your local machine.
-Navigate to the directory where the program is saved.
-Run the solar_system.py file using Python.
+* Ensure you have Python installed on your system.
+* Install Pygame library by using pip install pygame(in Windows).
+* Clone this repository to your local machine.
+* Navigate to the directory where the program is saved.
+* Run the solar_system.py file using Python.
 
 ## How to use the project:
-From the main menu by prssing the appropriate button the user access the features below:
+From the main menu by pressing the appropriate button the user access the features below:
 * Key 1: shows information about the planet
 * Key 2: shows a free fall simulation
 * Key 3: shows the planets(and their movement) in scale
@@ -57,6 +61,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 In the simulation of the movement of the planets the user will be able to see some missions of space exploration that happen(happened or will happen) near the time that appears.
 
 ## Feedback:
-If you have any feedback, suggestions, or issues, please don't hesitate to reach out. Your input is invaluable in enhancing the user experience of Solar-System.
+If you have any feedback, suggestions, or issues, please reach out.
 
-Thank you for using the app! Happy exploring the wonders of our solar system! 🌌🪐
+Thank you for using the app!
