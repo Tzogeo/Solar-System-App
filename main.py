@@ -4,7 +4,9 @@ from  random import randint,shuffle
 from webbrowser import open as wopen
 from math import sin,cos,atan2,atan,sqrt,pi
 from datetime import datetime, timedelta
-#from missions import *
+import openpyxl
+from openpyxl import Workbook,load_workbook
+
 pg.init()
 screen = pg.display.set_mode((720, 720))
 pg.display.set_caption("The Solar System")
@@ -79,6 +81,7 @@ def info():#displays information about the planets
             screen.blit(globals()[f'p{i}_text3'],globals()[f'p{i}_rect3'])
 
         pg.display.update()
+        
 def planet_info(number):#displays info about a specific planet that its being clicked
     sfont=pg.font.Font(None,34)
     i=0
@@ -145,10 +148,14 @@ def free_fall():#simulates a free fall of the same distance in each planet
         if movement==1:t=t+0.2
         clock.tick(20)
 
-def planet_movement(n,t=0):#shows the movement of the planets in scale
+def planet_movement(n,t=0,dt=0.001):#shows the movement of the planets in scale
+    book=load_workbook('missions.xlsx')
+    sheet=book.active
     xxsfont=pg.font.Font(None,16)
+    xxxsfont=pg.font.Font(None,12)
     clock = pg.time.Clock()
     movement=0
+    missions=0
     al=0
     epistrofi=0
     ft=[0,0,0,0,0,0,0,0]
@@ -162,7 +169,7 @@ def planet_movement(n,t=0):#shows the movement of the planets in scale
     for item in ry:xt.append(item)
     for item in rx:yt.append(item)
     if n==4:sint=160
-    else:sint=10    
+    else:sint=10
     colors=["grey","peru","springgreen","red","khaki","gold","lightblue","turquoise"]
     for i in range (n):#draws the elipses
         globals()[f'p{i}_ellipse'],globals()[f'p{i}_ellipse_rect']=Planets.planetlist[i].ellipses(sint)
@@ -180,10 +187,16 @@ def planet_movement(n,t=0):#shows the movement of the planets in scale
                     t= initial_day()
                 if event.key==pg.K_n:#asks the user for a day
                     new_date=input("input the date you want in dd/mm/yyyy format")
-                    t=starting_date(new_date)
+                    try: t=starting_date(new_date)
+                    except: print("invalid date")
+                if event.key==pg.K_m:
+                    missions=(missions+1)%2
+                if event.key==pg.K_t:
+                    try :dt=float(input("input the new time difference 0.001 is the initial for 4 planets and 0.02 for 8"))
+                    except:print("invalid time")
             if event.type==pg.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    if n==8 and globals()[f'p{4}_ellipse_rect'].collidepoint(event.pos): epistrofi=planet_movement(4,t)
+                    if n==8 and globals()[f'p{4}_ellipse_rect'].collidepoint(event.pos): epistrofi=planet_movement(4,t,0.001)
         screen.fill("black")
         if epistrofi==1:
             for i in range (4): globals()[f'p{i}_ellipse'],globals()[f'p{i}_ellipse_rect']=Planets.planetlist[i].ellipses(10)
@@ -201,8 +214,8 @@ def planet_movement(n,t=0):#shows the movement of the planets in scale
             yt[i] =b * sin(ft[i]-th+pi*arx[i]/180)#on the y axis
             if n==4:#draws the sun in the inner planets simulation
                 pg.draw.circle(screen,"yellow",(360,360),5)
-            rx[i],ry[i]=(sint*(xt[i]+d)),+sint*yt[i]
-            rrx[i]=360+rx[i]*cos(th)-ry[i]*sin(th)
+            rx[i],ry[i]=(sint*(xt[i]+d)),+sint*yt[i]# moves the planet
+            rrx[i]=360+rx[i]*cos(th)-ry[i]*sin(th)#this and the one below rotate the orbit and move it to the center
             rry[i]=360+ry[i]*cos(th)+rx[i]*sin(th)
             pg.draw.circle(screen,colors[i],(rrx[i],rry[i]),5)
             globals()[f'p{i}_ptext']=xxsfont.render(Planets.planetlist[i].name,True, colors[i])
@@ -214,9 +227,25 @@ def planet_movement(n,t=0):#shows the movement of the planets in scale
         maintext=smfont.render(ddate , True, (255,255,255))
         maintextrect=maintext.get_rect(topleft=(10,30))
         screen.blit(maintext,maintextrect)
-        if movement==1:
-            if n==4:t=t-0.019
-            t=t+0.02#changes time
+        if missions==1:#if missions are shown on the window
+            pllist=[0 for i in range (8)]
+            i=2
+            if n==4:#finds the right lines
+                sd='G'
+                fd='H'
+            else:
+                sd='E'  
+                fd='F'
+            while True:
+                if sheet['C'+str(i)].value==None:break
+                if float(sheet[sd+str(i)].value)<t and float(sheet[fd+str(i)].value)>t:#if time is between the beginning and the end of this part of the mission
+                    num=sheet['B'+str(i)].value
+                    pllist[num]+=1
+                    globals()[f'mis{i}_text']=xxxsfont.render(sheet['A'+str(i)].value,True,(255,255,255))
+                    globals()[f'mis{i}_rect']=globals()[f'mis{i}_text'].get_rect(topleft=(rrx[num]-20,rry[num]+10+pllist[num]*xxxsfont.get_height()))
+                    screen.blit(globals()[f'mis{i}_text'],globals()[f'mis{i}_rect'])
+                i+=1
+        if movement==1:t=t+dt#changes time
         clock.tick(10)
         pg.display.flip()
 
@@ -249,11 +278,11 @@ def quiz(difficulty=None):
                                 print("congrats")
                                 score=score+1
                             else:
-                                print("booo")
+                                print("nooo")
                                 if difficulty=="hard":
                                     boos=boos+1
                                     if boos==3:
-                                        print("BOOOOOOOOOO!!!!Exases")
+                                        print("NOOOOOOOOOO!!!!You lost")
                                         return 0
                             quizlist=quizlist[1:]
         screen.fill("black")
@@ -284,6 +313,7 @@ def initial_day():#finds the t equivalent of the current date
 def starting_date(newdate):#finds the t equibalent of a date given by user
     start_date='01/01/2024'
     diff=date_difference_to_virtual_days(newdate,start_date,0)
+    print(diff*86400/149597871)
     return(diff*86400/149597871)
 
 def date_difference_to_virtual_days(end_date, start_date,today):
@@ -308,15 +338,15 @@ while True:
         if event.type==pg.KEYDOWN:
             if event.key == pg.K_1:info()
             if event.key == pg.K_2:free_fall()
-            if event.key==pg.K_3:planet_movement(8,initial_day())
-            if event.key==pg.K_4:planet_movement(4,initial_day())
+            if event.key==pg.K_3:planet_movement(8,initial_day(),0.02)
+            if event.key==pg.K_4:planet_movement(4,initial_day(),0.001)
             if event.key==pg.K_5:last_score=quiz()
             if event.key==pg.K_6:quiz("hard")
     screen.fill((0,0,0))
     if last_score>max_score:max_score=last_score
     smfont=pg.font.Font(None, 37)
     textlist=["Press 1 for information about the Planets,","2 to watch a free fall simulation on different Planets,","3 to watch the orbits of the Planets in scale" ,"4 to watch the orbits of the inner Planets" ,"5 to take a quiz. Max score="+str(max_score),"6 to take a quiz with 'hard' difficulty"]
-    for i in range (1,6,1):
+    for i in range (1,6,1):#shows the features of the program in the main screen
         globals()[f"maintext{i}"]=smfont.render(textlist[i-1] , True, (255,255,255))   
         globals()[f"maintextrect{i}"]=globals()[f"maintext{i}"].get_rect(topleft=(10,30+(i-1)*font.get_height()))
         screen.blit(globals()[f"maintext{i}"],globals()[f"maintextrect{i}"])
