@@ -230,6 +230,12 @@ def planet_movement(n,t=0,dt=0.001):#shows the movement of the planets in scale
         if missions==1:#if missions are shown on the window
             pllist=[0 for i in range (8)]
             i=2
+            spaceagencies={'NASA':(0,0,255),'Roscosmos':(250,0,0),'JAXA':(150,0,0),'ESA':(0,200,200),'ISRO':(255,128,0),'CNSA':(200,200,0),
+                           'MBRSC':(153,76,0),'undefined,cooperation':(255,255,255)}
+            for agency, color in spaceagencies.items():
+                agencyfont = xxsfont.render(agency, True, color)
+                agencyfontrect = agencyfont.get_rect(topright=(710, 30 + 12 * list(spaceagencies.keys()).index(agency)))
+                screen.blit(agencyfont, agencyfontrect)            
             if n==4:#finds the right lines
                 sd='G'
                 fd='H'
@@ -241,7 +247,9 @@ def planet_movement(n,t=0,dt=0.001):#shows the movement of the planets in scale
                 if float(sheet[sd+str(i)].value)<t and float(sheet[fd+str(i)].value)>t:#if time is between the beginning and the end of this part of the mission
                     num=sheet['B'+str(i)].value
                     pllist[num]+=1
-                    globals()[f'mis{i}_text']=xxxsfont.render(sheet['A'+str(i)].value,True,(255,255,255))
+                    color=(255,255,255)
+                    if sheet['I'+str(i)].value!=None: color=spaceagencies.get(sheet['I'+str(i)].value, (255, 255, 255))
+                    globals()[f'mis{i}_text']=xxxsfont.render(sheet['A'+str(i)].value,True,color)
                     globals()[f'mis{i}_rect']=globals()[f'mis{i}_text'].get_rect(topleft=(rrx[num]-20,rry[num]+10+pllist[num]*xxxsfont.get_height()))
                     screen.blit(globals()[f'mis{i}_text'],globals()[f'mis{i}_rect'])
                 i+=1
@@ -313,7 +321,6 @@ def initial_day():#finds the t equivalent of the current date
 def starting_date(newdate):#finds the t equibalent of a date given by user
     start_date='01/01/2024'
     diff=date_difference_to_virtual_days(newdate,start_date,0)
-    print(diff*86400/149597871)
     return(diff*86400/149597871)
 
 def date_difference_to_virtual_days(end_date, start_date,today):
