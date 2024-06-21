@@ -31,6 +31,7 @@ From the main menu by pressing the appropriate button the user access the featur
 * Key 4: focuses on the inner planets and shows them in scale
 * Key 5: opens a quiz on the planets
 * Key 6: opens another quiz with more difficult questions
+* Key 7: opens a game
 
 Specifically the user in each feature will do this:
 
@@ -41,10 +42,12 @@ Specifically the user in each feature will do this:
 3: The user will see the solar system with the distances between each planet in scale. In the beginning the planets will be placed in the position they are the day the program runs. By pressing the space bar the planets will begin to move (pr stop if they are already moving). The time will change accordingly. By pressing the key "n" the user will be able to give as input a certain date(in the dd/mm/yyyy format) and the simulation will show the position of the planets on that day. By pressing the key "r" their position will reset in the current day. By pressing the key "t" the user will be able to change the speed of the movement and by pressing the key "m" the simulation will show the missions that are happening during the date on the top-left part of the screen. By clicking with the mouse in the area near the inner planets the user will be transported in the inner planets.(See 4 for more information)
 
 4: The user will have the same features as 3 but the model will focus on the inner planets(Mercury,Venus,Earth and Mars). This will give the user the ability to better observe their movement, which is very fast and small in the other model
-.
+
 5: The user will be able to take a quiz to test their knowledge on the planets. In the top there will be questions which will have a planet for an answer and the user will have to click on the image of the right planet.
 
 6: This will also open a quiz. This quiz will have more difficult questions and the user will be able to make three mistakes before losing.
+
+7: This is a game with many levels.In the screen there will appear some planets which will move downwards. A word or phrase on the top-left part of the screen will state or indicate some planet(s). The user should click on the image of these planets. After a number of correct touches the game will move to the next level. After three false touches or non-touches of correct planets the level will restart. Both the correct touches and the errors will appear in the top-right part of the screen. In different levels there are different correct planets, speeds and numbers of necessary correct touches. There are also some special levels.
 
 The user will be able to return to the previous screen by pressing the escape button and leave the game by clicking x on the top right side of the window.
 
