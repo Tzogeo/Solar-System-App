@@ -6,6 +6,7 @@ from math import sin,cos,atan2,atan,sqrt,pi
 from datetime import datetime, timedelta
 import openpyxl
 from openpyxl import Workbook,load_workbook
+import game
 
 pg.init()
 screen = pg.display.set_mode((720, 720))
@@ -349,11 +350,12 @@ while True:
             if event.key==pg.K_4:planet_movement(4,initial_day(),0.001)
             if event.key==pg.K_5:last_score=quiz()
             if event.key==pg.K_6:quiz("hard")
+            if event.key==pg.K_7:game.game()
     screen.fill((0,0,0))
     if last_score>max_score:max_score=last_score
     smfont=pg.font.Font(None, 37)
-    textlist=["Press 1 for information about the Planets,","2 to watch a free fall simulation on different Planets,","3 to watch the orbits of the Planets in scale" ,"4 to watch the orbits of the inner Planets" ,"5 to take a quiz. Max score="+str(max_score),"6 to take a quiz with 'hard' difficulty"]
-    for i in range (1,6,1):#shows the features of the program in the main screen
+    textlist=["Press 1 for information about the Planets,","2 to watch a free fall simulation on different Planets,","3 to watch the orbits of the Planets in scale" ,"4 to watch the orbits of the inner Planets" ,"5 to take a quiz. Max score="+str(max_score),"6 to take a quiz with 'hard' difficulty","7 to play a game with the planets"]
+    for i in range (1,8,1):#shows the features of the program in the main screen
         globals()[f"maintext{i}"]=smfont.render(textlist[i-1] , True, (255,255,255))   
         globals()[f"maintextrect{i}"]=globals()[f"maintext{i}"].get_rect(topleft=(10,30+(i-1)*font.get_height()))
         screen.blit(globals()[f"maintext{i}"],globals()[f"maintextrect{i}"])
